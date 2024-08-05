@@ -1,0 +1,55 @@
+.dashboard {
+    font-family: Arial, sans-serif;
+  }
+  
+  .dashboard-header {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .dashboard-content {
+    padding: 20px;
+  }
+  
+  .record-list {
+    margin-bottom: 20px;
+  }
+  
+  .record {
+    border: 1px solid #dee2e6;
+    margin-bottom: 10px;
+  }
+  
+  .record-header {
+    background-color: #343a40;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .record-number {
+    font-size: 1.5em;
+  }
+  
+  .record-title {
+    font-size: 1.2em;
+  }
+  
+  .record-details {
+    padding: 10px;
+  }
+  
+  .application {
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .recent-activity {
+    border-top: 1px solid #dee2e6;
+    padding-top: 10px;
+  }

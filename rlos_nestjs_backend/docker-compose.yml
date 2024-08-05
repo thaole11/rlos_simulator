@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  backend_postgres:
+    image: "postgres:15.4"
+    env_file: ".env"
+    environment:
+      POSTGRES_DB: "${BACKEND_POSTGRES_DB}"
+      POSTGRES_USER: "${BACKEND_POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${BACKEND_POSTGRES_PASSWORD}"
+    volumes:
+      - "backend-postgres-data:/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
+    networks:
+      - "taipower-backend-network"
+    command: ["postgres", "-c", "max_connections=200"]
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${BACKEND_POSTGRES_USER}", "-d", "${BACKEND_POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  taipower-backend-network:
+    driver: bridge
+
+volumes:
+ postgres-data:
+
+ backend-postgres-data:
