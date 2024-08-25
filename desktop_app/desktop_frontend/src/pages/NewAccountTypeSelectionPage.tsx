@@ -1,11 +1,45 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const NewAccountTypeSelectionPage: React.FC = () => {
+  const navigate = useNavigate();
+
   const options = [
     { description: "Add new Current Account" },
     { description: "Add new Loan Account" },
     { description: "Add new Fast Path Loan Account" },
   ];
+
+  
+  
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "F3") {
+      console.log("Exit");
+      navigate("/exit");
+    } else if (event.key === "F11") {
+      console.log("Change password");
+      navigate("/change-password");
+    } else if (event.key === "F12") {
+      console.log("Cancel");
+      navigate("/");
+    } else if (event.key === "F13") {
+      console.log("Function requests");
+      navigate("/function-requests");
+    } else if (event.key === "F14") {
+      console.log("Submitted jobs");
+      navigate("/submitted-jobs");
+    } else if (event.key === "F18") {
+      console.log("Spool output");
+      navigate("/spool-output");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
     <div
@@ -20,7 +54,9 @@ const NewAccountTypeSelectionPage: React.FC = () => {
         justifyContent: "space-between",
       }}
     >
-      <div style={{ display: "flex", flexDirection: "column", padding: "20px" }}>
+      <div
+        style={{ display: "flex", flexDirection: "column", padding: "20px" }}
+      >
         <div
           style={{
             color: "magenta",
@@ -53,22 +89,40 @@ const NewAccountTypeSelectionPage: React.FC = () => {
             {options.map((option, index) => (
               <tr key={index} style={{ color: "lime" }}>
                 <td style={{ paddingRight: "10px", width: "5%" }}>
-                    <input type="text" style={{ width: '50%', background: 'black', color: 'lime', border: 'none', borderBottom: '1px solid lime', textAlign: 'center' }} />
+                  <input
+                    type="text"
+                    style={{
+                      width: "50%",
+                      background: "black",
+                      color: "lime",
+                      border: "none",
+                      borderBottom: "1px solid lime",
+                      textAlign: "center",
+                    }}
+                  />
                 </td>
                 <td>{option.description}</td>
               </tr>
             ))}
           </tbody>
         </table>
-
-        <div style={{ display: "flex", justifyContent: "end", color: "white", padding: "20px" }}>
-          <div>Bottom</div>
-        </div>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", padding: "20px" }}>
+      <div
+        style={{ display: "flex", flexDirection: "column", padding: "20px" }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "end",
+            color: "white",
+            padding: "20px",
+          }}
+        >
+          <div>Bottom</div>
+        </div>
         <div style={{ color: "skyblue", marginBottom: "10px" }}>
-          F3=Exit F12=Cancel 
+          F3=Exit F12=Cancel
         </div>
         <div
           style={{

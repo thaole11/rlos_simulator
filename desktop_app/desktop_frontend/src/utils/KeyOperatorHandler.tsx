@@ -28,7 +28,7 @@ const KeyOperatorHandler: React.FC<KeyOperatorHandlerProps> = ({
       navigate(`/customer-form`);
     } else if (event.key === "F3") {
       console.log("Exit");
-      navigate("/exit");
+      navigate("/");
     } else if (event.key === "F11") {
       console.log("Change password");
       navigate("/change-password");

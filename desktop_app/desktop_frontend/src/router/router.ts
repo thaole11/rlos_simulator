@@ -8,15 +8,19 @@ import CustomerCreditLinesPage from '../pages/CustomerCreditLinesPage';
 import CustomerSublimitsPage from '../pages/CustomerSublimitsPage';
 import NewAccountTypeSelectionPage from '../pages/NewAccountTypeSelectionPage';
 import AccountsTiedToSublimitsPage from '../pages/AccountsTiedToSublimitsPage';
+import NewLoanAccountPage from '../pages/NewLoanAccountPage';
+import CodesAndDefaultsPage from '../pages/CodesAndDefaultsPage';
+import InterestBillingsPage from '../pages/InterestBillingsPage';
+import SBVCodesPage from '../pages/SBVCodesPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: React.createElement(NewAccountTypeSelectionPage),
+    element: React.createElement(NewLoanAccountPage),
   },
   {
-    path: '/customer-form',
-    element: React.createElement(CustomerForm),
+    path: '/banking-system',
+    element: React.createElement(BankingSystemPage),
   },
   {
     path: '/customer-selection',
@@ -41,6 +45,22 @@ const router = createBrowserRouter([
   {
     path: '/new-account-type-selection',
     element: React.createElement(NewAccountTypeSelectionPage),
+  },
+  {
+    path: '/add-new-loan-account',
+    element: React.createElement(NewLoanAccountPage),
+  },
+  {
+    path: '/codes-and-defaults',
+    element: React.createElement(CodesAndDefaultsPage),
+  },
+  {
+    path: '/interest-billings',
+    element: React.createElement(InterestBillingsPage),
+  },
+  {
+    path: '/sbv-codes',
+    element: React.createElement(SBVCodesPage),
   },
 ]);
 

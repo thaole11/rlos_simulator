@@ -146,7 +146,10 @@ const WorkWithCustomersPage: React.FC = () => {
 
   const cancelCurrentOperation = () => {
     // Implement logic to cancel the current operation or clear selections
-    setSelectedCustomerIndex(-1);
+    // setSelectedCustomerIndex(-1);
+
+    // For demo purposes, just navigate back to the home page
+    navigate("/");
     console.log("Current operation cancelled");
   };
 

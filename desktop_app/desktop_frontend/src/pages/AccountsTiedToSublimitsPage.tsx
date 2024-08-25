@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AccountsTiedToSublimits: React.FC = () => {
+  const navigate = useNavigate();
+  const [selectedSubsystem, setSelectedSubsystem] = useState(0);
+
   const accounts = [
     {
       appl: "50",
@@ -113,6 +117,36 @@ const AccountsTiedToSublimits: React.FC = () => {
       productType: "10014",
     },
   ];
+
+  
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "F3") {
+      console.log("Exit");
+      navigate("/exit");
+    } else if (event.key === "F11") {
+      console.log("Change password");
+      navigate("/change-password");
+    } else if (event.key === "F12") {
+      console.log("Cancel");
+      navigate("/");
+    } else if (event.key === "F13") {
+      console.log("Function requests");
+      navigate("/function-requests");
+    } else if (event.key === "F14") {
+      console.log("Submitted jobs");
+      navigate("/submitted-jobs");
+    } else if (event.key === "F18") {
+      console.log("Spool output");
+      navigate("/spool-output");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
     <div
